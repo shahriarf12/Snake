@@ -1,44 +1,33 @@
 package snakeV2;
 
-import java.awt.Color;
-import java.awt.Graphics;
-
-public class Token {
-    private int x, y, score;
-    private Snake snake;
+public class Point {
+    private int x, y;
     
-    public Token(Snake s) {
-        x = (int)(Math.random() * 395);
-        y = (int)(Math.random() * 395);
-        snake = s;
+    public Point() {
+        x = 0;
+        y = 0;
     }
     
-    public void changePosition() {
-        x = (int)(Math.random() * 395);
-        y = (int)(Math.random() * 395);
+    
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
     
-    public int getScore() {
-        return score;
+    
+    public void setX(int x) {
+        this.x = x;
     }
     
-    public void draw(Graphics g) {
-        g.setColor(Color.green);
-        g.fillRect(x, y, 6, 6);
+    public void setY(int y) {
+        this.y = y;
     }
     
-    public boolean snakeCollision() {
-        int snakeX = snake.getX() + 2;
-        int snakeY = snake.getY() + 2;
-        if(snakeX >= x-1 && snakeX <= (y + 7)) {
-            if(snakeY >= y-1 && snakeY <= (y + 7)) {
-                changePosition();
-                score++;
-                snake.setElongate(true);
-                return true;
-            }
-            return false;
-        }
-        return false;
+    public int getX() {
+        return x;
+    }
+    
+    public int getY() {
+        return y;
     }
 }
